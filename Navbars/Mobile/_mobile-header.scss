@@ -1,0 +1,86 @@
+.mobile-header{
+    @include flex-column();
+    align-items: center;
+    display: none; // Na velikih zaslonih se ne vidi
+    width: 100%;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 20;
+    .icons-container{
+        position: sticky;
+        top: 0;
+        left: 0;
+        z-index: 20;
+        width: 100%;
+        @include flex-row();
+        align-items: center;
+        background-color: $dark;
+        padding: 0.7rem 2rem;
+        .icons-left-side, .icons-mid-side, .icons-right-side{
+            width: 33.33%;
+            @include flex-row();
+            .mobile-icon{
+                font-size: 3.5rem;
+                color: $green;
+                padding: 0.5rem;
+                transition-property: transform, background-color, color, border;
+                transition-duration: 0.4s;
+                border: solid $dark 0.3rem;
+                cursor: pointer;
+                margin: 0 0.5rem;
+                border-radius: 1.5rem;
+            }
+            .mobile-icon:hover{
+                color: $lightblue;
+                transform: scale(1.10);
+                border: solid $white 0.3rem;
+            }
+        }
+        .icons-left-side{
+            justify-content: flex-start;
+        }
+        .icons-mid-side{
+            justify-content: center;
+        }
+        .icons-right-side{
+            justify-content: flex-end;
+        }
+    }
+    .toggle-view{
+        @include flex-row();
+        justify-content: center;
+        width: 100%;
+        background-color: $white;
+        padding: 0.7rem 0;
+        .mobile-users-choice, .mobile-photos-choice{
+            width: 50%;
+            text-decoration: none;
+            text-align: center;
+            font-size: 2.5rem;
+            color: $dark;
+            background-color: $white;
+            //padding: 0.3rem;
+            .option{
+                @include button($white, $dark);
+                border-bottom: 0.3rem solid $green;
+                font-size: 2.4rem;
+                padding: 0.8rem 1.4rem;
+                margin-right: 2rem;
+            }
+            .chosen{
+                background-color: $green;
+                color: $dark;
+                i{
+                    color: $dark;
+                }
+            }
+        
+            i{
+                padding-right: 0.8rem;
+                color: $white;
+                transition: all 0.4s;
+            }
+        }
+    }
+}

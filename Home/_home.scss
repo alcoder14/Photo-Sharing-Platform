@@ -1,0 +1,89 @@
+#feed-body{
+    background-color: $dark;
+}
+.filters-section{
+    @include flex-row();
+    justify-content: center;
+    background-color: $dark;
+    padding: 2rem 0;
+
+    .live-search{
+        @include flex-column();
+        justify-content: center;
+        width: 50%;
+        .live-search-results{
+            position: relative;
+            @include flex-column();
+            width: 100%;
+            .column{
+                position: absolute;
+                z-index: 10;
+                width: 100%;
+                .search-result{  
+                    background-color: $dark;
+                    //width: 100%;
+                    @include flex-row();
+                    justify-content: flex-start;
+                    font-size: 2rem;
+                    color: $white;
+                    padding: 1rem;
+                    margin: 0 1rem;
+                    border-bottom: solid 0.3rem $lightblue;
+                    border-right: solid 0.3rem $lightblue;
+                    border-left: solid 0.3rem $lightblue;
+                    cursor: pointer;
+                    transition-property: background-color, color, border-bottom;
+                    transition-duration: 0.4s;
+                    border-radius: 1rem;
+                }
+                .search-result:hover{
+                    background-color: $lightblue;
+                    color: $dark;
+                    border-bottom: $white solid 0.3rem;
+                }
+            }
+        }
+    }
+
+    .select-filters{
+        @include flex-row();
+    }
+
+    .category-filter, .sorting-filter, .search-filter, .submit-button{
+        outline: none;
+        font-size: 3rem;
+        padding: 0.8rem 1.4rem;
+        margin: 0 1rem;
+        border-radius: 2rem;
+    }
+    .category-filter, .sorting-filter, .search-filter{
+        border-radius: 2rem;
+        border: none;
+    }
+    
+    .submit-button{
+        @include border-button($white, $dark, 0.3rem, solid, $lightblue);
+    }
+    .submit-button:hover{
+        @include hover-effect(1.15, $dark, $lightblue, $white, 0.3rem, solid)
+    }
+}
+
+
+// Feed
+
+.results-count{
+    background-color: $dark;
+    padding: 2rem;
+    color: $white;
+    font-size: 3rem;
+    text-align: center;
+}
+.feed{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 24% 24% 24% 24%;
+    justify-content: space-evenly;
+    background-color: $dark;
+}
+

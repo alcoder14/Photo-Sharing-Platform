@@ -1,0 +1,369 @@
+.blue-bar{
+    width: 100%;
+    height: 1vw;
+    background-color: $lightblue;
+}
+.photo-viewer{
+    width: 100%;
+    height: 78vh;
+    @include flex-column();
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 2rem;
+    padding: 2rem;
+    background-color: #161515;
+    color: white;
+    .photo-slideshow{
+        width: 100%;
+        height: 72vh;
+        @include flex-row();
+        justify-content: space-evenly;
+        align-items: center;
+        a{
+            color: white;
+        }
+        .photo{
+            height: 550px;
+            width: auto;
+        }
+        .chevron{
+            i{
+                font-size: 5rem;
+            }
+        }
+    }
+    .photo-controls{
+        @include flex-row();
+        justify-content: center;
+        align-items: center;
+        i{
+            @include icon();
+        }
+        i:hover{
+            @include icon-hover();
+        }
+
+        i, .counter{
+            font-size: 4rem;
+            margin: 0 1.5rem;
+            color: white;
+        }
+
+    }
+}
+
+.photo-data-container{
+    background-color: white;
+    color: $dark;
+    display: grid;
+    //grid-template-columns: 9% 9% 9% 9% 9% 9% 9% 9% 9% 9%;
+    grid-template-columns: 18% 18% 18% 18% 18%;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    a{
+        color: $dark;
+    }
+    .item{
+        @include flex-column();
+        .title, .content{
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        .title{
+            border-bottom: $lightblue 0.5rem solid;
+        }
+    }
+}
+
+.download-container{
+    width: 100%;
+    @include flex-row();
+    justify-content: center;
+    background-color: white;
+    a i{
+        @include icon();
+        font-size: 4rem;
+    }
+    i:hover{
+        @include icon-hover();
+    }
+}
+
+
+.comment-section{
+    width: 100%;
+    background-color: $dark;
+    @include flex-column();
+    align-items: flex-start;
+    padding-top: 3rem;
+    padding-left: 30rem;
+    .comment-form{
+        width: 100%;
+        @include flex-row();
+        textarea{
+            outline: 0;
+            border: 0;
+            font-size: 2rem;
+            padding: 0.8rem 1.4rem;
+            margin-right: 2rem;
+            resize: vertical;
+            border-radius: 2rem;
+            font-family: 'Inter Tight', sans-serif;
+        }
+        button{
+            @include border-button($white, $dark, 0.3rem, solid, $lightblue);
+            font-size: 3rem;
+            padding: 0.8rem 1.4rem;
+            margin: 0 1rem;
+        }
+        button:hover{
+            @include hover-effect(1.15, $dark, $lightblue, $white, 0.3rem, solid)
+        }
+    }
+    .comments-container{
+        @include flex-column();
+        width: 100%;
+        padding: 3rem 0;
+        .no-comments{  
+            width: 40%;
+            height: 10rem;
+            @include flex-row();
+            justify-content: flex-start;
+            align-items: center;
+            p{
+                font-size: 2rem;
+                color: $white;
+            }
+        }
+
+        .comment{
+            $padding: 1rem;
+            width: 40%;
+            padding: 1rem 0;
+            border-bottom: solid 0.5rem $green;
+            color: $white;
+            .comment-upper-line{
+                width: 100%;
+                @include flex-row();
+                justify-content: space-between;
+                padding-bottom: $padding;
+                .comment-author{
+                    font-size: 3rem;
+                }
+                a{
+                    align-self: center;
+                }
+            }
+            .comment-time{
+                font-size: 2rem;
+                padding-bottom: $padding;
+            }
+            .comment-content{
+                font-size: 2.5rem;
+                padding-bottom: $padding;
+            }
+        }
+    }
+}
+
+
+// SMALL SCREEN COMPONENTS
+
+.gallery-navigation-mobile{
+    display: none;
+    width: 100%;
+    flex-direction: row;
+    background-color: $blue;
+    a{
+        flex-basis: 50%;
+        @include flex-row();
+        justify-content: center;
+        font-size: 3rem;
+        padding: 2rem;
+        text-decoration: none;
+        color: $white;
+        transition: background-color 0.4s;
+    }
+    a:hover{
+        background-color: $dark;
+        color: $blue;
+        
+    }
+}
+
+.photo-controls-mobile{
+    display: none;
+    width: 100%;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    background-color: $dark;
+    padding: 2rem;
+    .mobile-control-cell{
+        @include flex-row();
+        justify-content: center;
+        .counter, a i{
+            font-size: 4rem;
+            color: $white;
+        }
+    }
+    
+}
+
+
+@media(max-width: 1500px){
+    .photo-viewer{
+        .photo-slideshow{
+            .photo{
+                width: 70%;
+                height: auto;
+            }
+        }
+    }
+
+    .photo-data-container{
+        .item{
+            .title, .content{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .comment-section{
+        padding-left: 20rem;
+        .comments-container{
+            .comment{
+                width: 75%;
+            }
+        }
+    }
+}
+
+
+@media(max-width: 1100px){
+    body{
+        overflow-x: hidden;
+    }
+    .photo-viewer{
+        height: fit-content;
+        padding: 0;
+        .photo-slideshow{
+            height: fit-content;
+            a{
+                display: none;
+            }
+            .photo{
+                width: 100%;
+                height: auto;
+            }
+        }
+        .photo-controls{
+            display: none;
+        }
+    }
+
+    // Small Screen Components Visible
+
+    .gallery-navigation-mobile{
+        display: flex;
+    }
+    .photo-controls-mobile{
+        display: grid;
+    }
+
+    // End
+
+    .photo-data-container{
+        grid-template-columns: 22% 22% 22% 22%;
+        justify-content: center;
+        .item{
+            .title, .content{
+                font-size: 0.5rem;
+            }
+        }
+    }
+
+    .comment-section{
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        padding-left: 2rem;
+    }
+}
+
+@media(max-width: 800px){
+    .photo-data-container{
+        grid-template-columns: 50% 50%;
+        justify-content: center;
+        padding: 3rem 0;
+        .item{
+            .title, .content{
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .comment-section{
+        padding-right: 2rem;
+        .comment-form{
+            @include flex-column();
+            textarea{
+                height: 20vh;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+        }
+        .comments-container{
+            .comment{
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media(max-width: 1500px){
+    .photo-data-container{
+        .item{
+            .title, .content{
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+
+/*
+@media(max-width: 1500px){
+    .photo-viewer{
+        .photo{
+            width: auto;
+            height: 500px;
+        }
+    }
+    .photo-data{
+        grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    }
+}
+@media(max-width: 1100px){
+    .photo-viewer{
+        height: fit-content;
+        justify-content: unset;
+        align-items: unset;
+        .chevron{
+            display: none;
+        }
+        .photo{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .photo-data{
+        grid-template-columns: 20% 20% 20% 20% 20%;
+    }
+}
+*/
+
+

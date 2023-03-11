@@ -1,0 +1,204 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Inter Tight', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
+
+/*
+$lightblue: #81CCEC;
+$blue: $lightblue;
+$green: #B5EB80;
+$dark: #252627;
+$white: #FFF9FB;
+$grey: #D3D4D9;
+$darkgrey: #949494;
+$red: #ED6262;
+
+*/
+
+$lightblue: #e46f0f;
+$blue: $lightblue;
+$green: #e46f0f;
+$dark: #080808;
+$white: #FFF9FB;
+$grey: #D3D4D9;
+$darkgrey: #949494;
+$red: #ED6262;
+
+@mixin flex-row (){
+    display: flex;
+    flex-direction: row;
+}
+@mixin flex-column (){
+    display: flex;
+    flex-direction: column;
+}
+@mixin border-button($color, $background-color, $border-width, $border-style, $border-color){
+    outline: none;
+    color: $color;
+    border: $border-width $border-style $border-color;
+    background-color: $background-color;
+    transition-property: transform, color, background-color;
+    transition-duration: 0.4s;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+@mixin button($color, $background-color){
+    outline: none;
+    border: none;
+    background-color: $background-color;
+    color: $color;
+    transition-property: transform, color, background-color;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+@mixin hover-effect($scale, $color, $background-color, $border-color, $border-width, $border-style){
+    transform: scale($scale);
+    color: $color;
+    background-color: $background-color;
+    border: $border-color $border-style $border-width;
+}
+@mixin icon(){
+    cursor: pointer;
+    transition-property: transform, background-color, color, border;
+    transition-duration: 0.4s;
+    border: solid 0.3rem transparent;
+    border-radius: 1.4rem;
+    padding: 0.5rem;
+}
+@mixin icon-hover{
+    color: $lightblue;
+    transform: scale(1.15);
+    border: solid $white 0.3rem;
+}
+
+// Styles
+
+@import "../index";
+@import "../Signup/signup";
+@import "../Login/login";
+@import "../Home/home";
+@import "../PhotoView/photoview";
+@import "../Profile/profile";
+@import "../Profile/Settings/user-settings";
+@import "../Users/users";
+
+// Global Styles 
+
+@import "../CSS/Global/post";
+@import "../CSS/Global/toggle_search";
+@import "../CSS/Global/animations";
+
+// Modal Styles 
+
+@import "../Modals/UploadPhotoModal/upload-photo-modal";
+
+// Navbar Styles
+
+@import "../Navbars/Desktop/navbar";
+@import "../Navbars/Mobile/mobile-header";
+
+// Footer Style
+
+@import "../Assets/footer";
+
+
+
+// MEDIA QUERIES 
+
+@media(max-width: 1500px){
+    // Three Column Gallery
+    .feed{
+        grid-template-columns: auto auto auto;
+    }
+}
+@media(max-width: 1150px){
+    // Adjust Navbar Text 
+    .navbar{
+        .navbar-icon{
+            font-size: 3rem;
+        }
+    }
+    // Two column gallery
+    .feed{
+        grid-template-columns: auto auto;
+    }
+    // Adjust Home Container
+    .home-container{
+        &-title{
+            font-size: 4rem;
+        }
+        // Home Container buttons
+        .search-options{
+            .option{
+                font-size: 1.6rem;
+                padding: 0.6rem 1.25rem;
+            }
+        }
+    }
+    // Adjust Filters section
+    .filters-section{
+        @include flex-column();
+        background-color: #161515;
+        .live-search{
+            width: 100%;
+        }
+        .select-filters{
+            justify-content: center;
+        }
+        .category-filter, .sorting-filter, .search-filter, .submit-button{
+            font-size: 2.4rem;
+            padding: 0.6rem 1.25rem;
+        }
+        .category-filter, .sorting-filter{
+            margin: 1rem;
+        }
+        .submit-button:hover{
+            transform: none;
+        }
+    }
+}
+// SMALL SCREENS
+@media(max-width: 800px){
+    // One-column gallery
+    .feed{
+        grid-template-columns: auto;
+        .post{
+            width: 100%;
+        }
+    }
+    // Hide blue bar
+    .blue-bar{
+        display: none;
+    }
+    // Hide Desktop Navbar And Home Container
+    .navbar{
+        display: none;
+    }
+    .search-toggle-container{
+        display: none;
+    }
+    .filters-section{
+        padding-top: 4rem;
+        .select-filters{
+            .category-filter, .sorting-filter{
+                width: 50%;
+            }
+        }
+    }
+    // Mobile Navbar And Header
+    .mobile-navbar, .mobile-header{
+        display: flex;
+    }
+
+}
+
+
+
+

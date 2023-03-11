@@ -1,0 +1,15 @@
+footer{
+    width: 100%;
+    background-color: $lightblue;
+    @include flex-row();
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    position: sticky;
+    bottom: 0;
+    right: 0;
+    p{
+        font-size: 3rem;
+        color: $white;
+    }
+}

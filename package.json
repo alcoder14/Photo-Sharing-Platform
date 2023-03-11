@@ -1,0 +1,15 @@
+{
+  "name": "photosharingplatform",
+  "version": "1.0.0",
+  "description": "Photo Sharing Platform",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass CSS/main.scss CSS/style.css -w"
+  },
+  "author": "AL",
+  "license": "ISC",
+  "dependencies": {
+    "aos": "^2.3.4",
+    "node-sass": "^8.0.0"
+  }
+}
